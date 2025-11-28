@@ -1,25 +1,6 @@
 <<<<<<< HEAD
-# ApexQuest: An AI-Powered, Cloud-Native Learning Management System
-
-![CI/CD - Backend](https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System/actions/workflows/backend.yml/badge.svg)
-![CI/CD - Frontend](https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System/actions/workflows/frontend.yml/badge.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-
-An intelligent, full-stack Learning Management System (LMS) designed from the ground up with a modern, cloud-native architecture. ApexQuest leverages AI to enhance the learning experience and is built on a fully automated CI/CD pipeline for rapid, reliable deployments.
-
-### ✨ **Live Demo**
-
-**Check out the live application hosted on Render:** **[https://apexquest-a-lms-website-1.onrender.com](https://apexquest-a-lms-website-1.onrender.com)**
-
-## **Demo Video**
-[![ApexQuest Demo Video](https://github.com/user-attachments/assets/ed279db7-d443-4351-801c-496d39c241b6)](https://drive.google.com/file/d/1HnOinxAZ5ZBMK5p7Xf4JAcFrOFFayks2/view?usp=sharing)
-
----
-
-## 🚀 Key Features
+# ApexQuest:Cloud-Native Learning Management System
+##  Key Features
 
 * **User Authentication:** Secure JWT-based authentication with signup, login, and forgot password functionality.
 * **Comprehensive Course Management (for Educators):**
@@ -36,7 +17,7 @@ An intelligent, full-stack Learning Management System (LMS) designed from the gr
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+##  Tech Stack & Architecture
 
 This project is built with a modern MERN stack and is fully containerized with Docker for consistency across all environments. It follows a microservices-inspired architecture with a separate frontend and backend.
 
@@ -45,33 +26,9 @@ This project is built with a modern MERN stack and is fully containerized with D
 | **Frontend**| React.js (Vite), Redux Toolkit, Axios                           |
 | **Backend** | Node.js, Express.js                                             |
 | **Database**| MongoDB (with Mongoose)                                         |
-| **DevOps** | **Docker, Docker Compose, Nginx, GitHub Actions, Render, Docker Hub** |
-| **Services**| Cloudinary (Media), Razorpay (Payments), Gemini API (AI)          |
+| **Services**| Cloudinary (Media), Razorpay (Payments)                        |
 
-### System Architecture
-
-The application is architected for scalability and automation, leveraging a full CI/CD pipeline.
-
-```
-+-----------+       +-----------------+       +-------------------+       +----------------------+       +----------------+
-| Developer | ----> |  git push main  | ----> |  GitHub Actions   | ----> |  Build & Push Image  | ----> |   Docker Hub   |
-+-----------+       +-----------------+       +-------------------+       +----------------------+       +----------------+
-      ^                                             | (CI/CD)                                                |
-      |                                             |                                                        | (Pulls Image)
-      |                                             V                                                        V
-      |                                   +-------------------+                             +-------------------------+
-      +-----------------------------------|  Automated Tests  |                             |  Render Cloud Hosting   |
-                                          +-------------------+                             +-------------------------+
-                                                                                                  | (Frontend & Backend)
-                                                                                                  V
-                                                                                            +-----------+
-                                                                                            | End User  |
-                                                                                            +-----------+
-
-```
----
-
-## ⚙️ DevOps & CI/CD Workflow
+##  DevOps & CI/CD Workflow
 
 This project is built with a **fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline** using GitHub Actions, a cornerstone of modern DevOps practices.
 
@@ -85,22 +42,21 @@ This end-to-end automation ensures rapid, reliable, and consistent deployments, 
 
 ---
 
-## 📦 Getting Started (Local Development)
+##  Getting Started (Local Development)
 
 To run this project on your local machine, please follow these steps.
 
 ### Prerequisites
 
 * Node.js (v18 or later)
-* Docker & Docker Compose
 * A Git client
 
 ### Installation & Setup
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System.git](https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System.git)
-    cd ApexQuest-AI-powered-Learning-Management-System
+    git clone [https://github.com/krishna2005-kk/Project_sem7.git](https://github.com/krishna2005-kk/Project_sem7.git)
+    cd ApexQuest-Learning-Management-System
     ```
 
 2.  **Configure Environment Variables:**
@@ -120,20 +76,13 @@ To run this project on your local machine, please follow these steps.
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - [ ] Implement a staging environment for pre-production testing.
 - [ ] Increase test coverage with E2E tests using Cypress.
 - [ ] Integrate a WebSocket layer for real-time notifications.
 - [ ] Explore deployment on Kubernetes (K8s) for advanced orchestration.
 
----
-
-## 👨‍💻 Contact
-
-Amar Narayan Dwivedi - amardwivedi792@gmail.com
-
-Project Link: [https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System](https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System)
 =======
 # Project_sem7
 ApexQuest-Learning-Management-System
