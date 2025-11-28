@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ApexQuest: An AI-Powered, Cloud-Native Learning Management System
 
 ![CI/CD - Backend](https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System/actions/workflows/backend.yml/badge.svg)
@@ -133,3 +134,7 @@ To run this project on your local machine, please follow these steps.
 Amar Narayan Dwivedi - amardwivedi792@gmail.com
 
 Project Link: [https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System](https://github.com/AmarNarayanDwivedi/ApexQuest-AI-powered-Learning-Management-System)
+=======
+# Project_sem7
+ApexQuest-Learning-Management-System
+>>>>>>> 956ce02683bc590b7fd013f58ba9b79ff4edd7c0
