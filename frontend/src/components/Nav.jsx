@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import logo from "../assets/logo.png";
-import { IoMdPerson } from "react-icons/io";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { GiSplitCross } from "react-icons/gi";
+import React, { useState } from 'react';
+import logo from '../assets/logo.png';
+import { IoMdPerson } from 'react-icons/io';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { GiSplitCross } from 'react-icons/gi';
 
-import { useNavigate } from "react-router-dom";
-import { serverUrl } from "../App";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { setUserData } from "../redux/userSlice";
+import { useNavigate } from 'react-router-dom';
+import { serverUrl } from '../App';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserData } from '../redux/userSlice';
 function Nav() {
   let [showHam, setShowHam] = useState(false);
   let [showPro, setShowPro] = useState(false);
@@ -24,11 +24,11 @@ function Nav() {
       });
       dispatch(setUserData(null));
       // cancel/cleanup requests if you have axios interceptors
-      toast.success("Logged out successfully");
-      navigate("/login"); // redirect to a non-protected page
+      toast.success('Logged out successfully');
+      navigate('/login'); // redirect to a non-protected page
     } catch (err) {
       console.error(err?.response?.data?.message || err.message);
-      toast.error("Logout failed");
+      toast.error('Logout failed');
     }
   };
 
@@ -39,7 +39,7 @@ function Nav() {
           <img
             src={logo}
             className=" w-[60px]  rounded-[5px] border-2 border-white cursor-pointer"
-            onClick={() => navigate("/")}
+            onClick={() => navigate('/')}
             alt=""
           />
         </div>
@@ -68,20 +68,20 @@ function Nav() {
               )}
             </div>
           )}
-          {userData?.role == "educator" ? (
+          {userData?.role == 'educator' ? (
             <div
               className="px-[20px] py-[10px] border-2 lg:border-white border-black lg:text-white bg-[black] text-black rounded-[10px] text-[18px] font-light flex gap-2 cursor-pointer"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate('/dashboard')}
             >
               Dashboard
             </div>
           ) : (
-            ""
+            ''
           )}
           {!userData && (
             <span
               className="px-[20px] py-[10px] border-2 border-white text-white rounded-[10px] text-[18px] font-light cursor-pointer bg-[#000000d5] "
-              onClick={() => navigate("/login")}
+              onClick={() => navigate('/login')}
             >
               Login
             </span>
@@ -99,13 +99,13 @@ function Nav() {
           <div className=" absolute top-[110%] right-[15%] flex items-center flex-col justify-center gap-2 text-[16px] rounded-md bg-[white] px-[15px] py-[10px] border-[2px]  border-black hover:border-white hover:text-white cursor-pointer hover:bg-black  ">
             <span
               className="bg-[black] text-white  px-[30px] py-[10px] rounded-2xl hover:bg-gray-600"
-              onClick={() => navigate("/profile")}
+              onClick={() => navigate('/profile')}
             >
               My Profile
             </span>
             <span
               className="bg-[black] text-white hover:bg-gray-600  px-[25px] py-[10px] rounded-2xl"
-              onClick={() => navigate("/enrolledcourses")}
+              onClick={() => navigate('/enrolledcourses')}
             >
               My Courses
             </span>
@@ -119,8 +119,8 @@ function Nav() {
       <div
         className={`fixed  top-0 w-[100vw] h-[100vh] bg-[#000000d6] flex items-center justify-center flex-col gap-5 z-10 ${
           showHam
-            ? "translate-x-[0%] transition duration-600  ease-in-out"
-            : "translate-x-[-100%] transition duration-600  ease-in-out"
+            ? 'translate-x-[0%] transition duration-600  ease-in-out'
+            : 'translate-x-[-100%] transition duration-600  ease-in-out'
         }`}
       >
         <GiSplitCross
@@ -150,31 +150,31 @@ function Nav() {
 
         <span
           className="flex items-center justify-center gap-2  text-white border-[2px] border-[#fdfbfb7a] bg-[#000000d5] rounded-lg px-[65px] py-[20px] text-[18px] "
-          onClick={() => navigate("/profile")}
+          onClick={() => navigate('/profile')}
         >
-          My Profile{" "}
+          My Profile{' '}
         </span>
         <span
           className="flex items-center justify-center gap-2  text-white border-[2px] border-[#fdfbfb7a] bg-[#000000d5] rounded-lg px-[65px] py-[20px] text-[18px] "
-          onClick={() => navigate("/enrolledcourses")}
+          onClick={() => navigate('/enrolledcourses')}
         >
-          My Courses{" "}
+          My Courses{' '}
         </span>
 
-        {userData?.role == "educator" ? (
+        {userData?.role == 'educator' ? (
           <div
             className="flex items-center justify-center gap-2 text-[18px] text-white border-[2px] border-[#fdfbfb7a] bg-[#000000d5] rounded-lg px-[60px] py-[20px]"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate('/dashboard')}
           >
             Dashboard
           </div>
         ) : (
-          ""
+          ''
         )}
         {!userData ? (
           <span
             className="flex items-center justify-center gap-2 text-[18px] text-white border-[2px] border-[#fdfbfb7a] bg-[#000000d5] rounded-lg px-[80px] py-[20px]"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate('/login')}
           >
             Login
           </span>
