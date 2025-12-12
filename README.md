@@ -1,34 +1,36 @@
 <<<<<<< HEAD
-# ApexQuest:Cloud-Native Learning Management System
-##  Key Features
 
-* **User Authentication:** Secure JWT-based authentication with signup, login, and forgot password functionality.
-* **Comprehensive Course Management (for Educators):**
-    * Full CRUD (Create, Read, Update, Delete) operations for courses.
-    * Dynamic lecture management (add, edit, and reorder video lectures).
-    * Rich content uploading via Cloudinary integration.
-* **Interactive Student Experience:**
-    * Seamless course enrollment and progress tracking.
-    * Integrated Razorpay payment gateway for course purchases.
-* **AI-Powered Course Assistant:**
-    * Leverages the Gemini API to provide intelligent answers to student questions based on course content.
-    * Enhances learning through an interactive Q&A interface.
-* **User Profile Management:** Users can view and update their profiles, including uploading a profile picture.
+# ApexQuest:Cloud-Native Learning Management System
+
+## Key Features
+
+- **User Authentication:** Secure JWT-based authentication with signup, login, and forgot password functionality.
+- **Comprehensive Course Management (for Educators):**
+  - Full CRUD (Create, Read, Update, Delete) operations for courses.
+  - Dynamic lecture management (add, edit, and reorder video lectures).
+  - Rich content uploading via Cloudinary integration.
+- **Interactive Student Experience:**
+  - Seamless course enrollment and progress tracking.
+  - Integrated Razorpay payment gateway for course purchases.
+- **AI-Powered Course Assistant:**
+  - Leverages the Gemini API to provide intelligent answers to student questions based on course content.
+  - Enhances learning through an interactive Q&A interface.
+- **User Profile Management:** Users can view and update their profiles, including uploading a profile picture.
 
 ---
 
-##  Tech Stack & Architecture
+## Tech Stack & Architecture
 
 This project is built with a modern MERN stack and is fully containerized with Docker for consistency across all environments. It follows a microservices-inspired architecture with a separate frontend and backend.
 
-| Category    | Technologies & Tools                                            |
-|-------------|-----------------------------------------------------------------|
-| **Frontend**| React.js (Vite), Redux Toolkit, Axios                           |
-| **Backend** | Node.js, Express.js                                             |
-| **Database**| MongoDB (with Mongoose)                                         |
-| **Services**| Cloudinary (Media), Razorpay (Payments)                        |
+| Category     | Technologies & Tools                    |
+| ------------ | --------------------------------------- |
+| **Frontend** | React.js (Vite), Redux Toolkit, Axios   |
+| **Backend**  | Node.js, Express.js                     |
+| **Database** | MongoDB (with Mongoose)                 |
+| **Services** | Cloudinary (Media), Razorpay (Payments) |
 
-##  DevOps & CI/CD Workflow
+## DevOps & CI/CD Workflow
 
 This project is built with a **fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline** using GitHub Actions, a cornerstone of modern DevOps practices.
 
@@ -42,18 +44,19 @@ This end-to-end automation ensures rapid, reliable, and consistent deployments, 
 
 ---
 
-##  Getting Started (Local Development)
+## Getting Started (Local Development)
 
 To run this project on your local machine, please follow these steps.
 
 ### Prerequisites
 
-* Node.js (v18 or later)
-* A Git client
+- Node.js (v18 or later)
+- A Git client
 
 ### Installation & Setup
 
 1.  **Clone the repository:**
+
     ```bash
     git clone [https://github.com/krishna2005-kk/Project_sem7.git](https://github.com/krishna2005-kk/Project_sem7.git)
     cd ApexQuest-Learning-Management-System
@@ -61,22 +64,24 @@ To run this project on your local machine, please follow these steps.
 
 2.  **Configure Environment Variables:**
     Create two `.env` files based on the provided templates.
-    * Create a file at `./backend/.env` and fill in the values from `./backend/.env.example`.
-    * Create a file at the root `./.env` for frontend build arguments (see the root `.env.example` in the repo). For local development, `VITE_SERVER_URL` should be `http://localhost:8000`.
+
+    - Create a file at `./backend/.env` and fill in the values from `./backend/.env.example`.
+    - Create a file at the root `./.env` for frontend build arguments (see the root `.env.example` in the repo). For local development, `VITE_SERVER_URL` should be `http://localhost:8000`.
 
 3.  **Build and Run the Application with Docker Compose:**
+
     ```bash
     # This command will build the Docker images and start the containers in the background.
     docker-compose up --build -d
     ```
 
 4.  **Access the Application:**
-    * Frontend is available at: `http://localhost:5173`
-    * Backend API is available at: `http://localhost:8000`
+    - Frontend is available at: `http://localhost:5173`
+    - Backend API is available at: `http://localhost:8000`
 
 ---
 
-##  Future Improvements
+## Future Improvements
 
 - [ ] Implement a staging environment for pre-production testing.
 - [ ] Increase test coverage with E2E tests using Cypress.
@@ -84,6 +89,9 @@ To run this project on your local machine, please follow these steps.
 - [ ] Explore deployment on Kubernetes (K8s) for advanced orchestration.
 
 =======
+
 # Project_sem7
+
 ApexQuest-Learning-Management-System
->>>>>>> 956ce02683bc590b7fd013f58ba9b79ff4edd7c0
+
+> > > > > > > 956ce02683bc590b7fd013f58ba9b79ff4edd7c0
