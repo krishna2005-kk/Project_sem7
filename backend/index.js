@@ -41,6 +41,10 @@ app.use('/api/payment', paymentRouter);
 app.use('/api/ai', aiRouter);
 app.use('/api/review', reviewRouter);
 
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 app.get('/', (req, res) => {
   res.send('Hello From Server');
 });
