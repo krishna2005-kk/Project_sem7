@@ -9,30 +9,37 @@ import courseRouter from './routes/courseRoute.js';
 import paymentRouter from './routes/paymentRoute.js';
 import aiRouter from './routes/aiRoute.js';
 import reviewRouter from './routes/reviewRoute.js';
+
 dotenv.config();
 
-let port = process.env.PORT || 5000;
-let app = express();
+const port = process.env.PORT || 5000;
+const app = express();
+
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  'https://lms-64xa10a5t-krishnas-projects-b9238dde.vercel.app',
-];
+
+const allowedOrigins = (process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      // allow server-to-server tools and same-origin requests without Origin
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
     credentials: true,
   })
 );
-
-// app.use(
-//   cors({
-//     origin: process.env.FRONTEND_URL,
-//     credentials: true,
-//   })
-// );
 
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
@@ -46,6 +53,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server Started');
+  console.log(`Server started on port ${port}`);
   connectDb();
 });

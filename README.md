@@ -1,97 +1,149 @@
-<<<<<<< HEAD
+# ApexQuest LMS (Project_sem7)
 
-# ApexQuest:Cloud-Native Learning Management System
+ApexQuest is a MERN-based learning management platform with:
+- JWT authentication
+- course/lecture management
+- enrollment & payment flow (Razorpay)
+- AI learning assistant (Gemini)
 
-## Key Features
+## Project structure
 
-- **User Authentication:** Secure JWT-based authentication with signup, login, and forgot password functionality.
-- **Comprehensive Course Management (for Educators):**
-  - Full CRUD (Create, Read, Update, Delete) operations for courses.
-  - Dynamic lecture management (add, edit, and reorder video lectures).
-  - Rich content uploading via Cloudinary integration.
-- **Interactive Student Experience:**
-  - Seamless course enrollment and progress tracking.
-  - Integrated Razorpay payment gateway for course purchases.
-- **AI-Powered Course Assistant:**
-  - Leverages the Gemini API to provide intelligent answers to student questions based on course content.
-  - Enhances learning through an interactive Q&A interface.
-- **User Profile Management:** Users can view and update their profiles, including uploading a profile picture.
+- `frontend/` → Vite + React app
+- `backend/` → Node.js + Express API
 
 ---
 
-## Tech Stack & Architecture
-
-This project is built with a modern MERN stack and is fully containerized with Docker for consistency across all environments. It follows a microservices-inspired architecture with a separate frontend and backend.
-
-| Category     | Technologies & Tools                    |
-| ------------ | --------------------------------------- |
-| **Frontend** | React.js (Vite), Redux Toolkit, Axios   |
-| **Backend**  | Node.js, Express.js                     |
-| **Database** | MongoDB (with Mongoose)                 |
-| **Services** | Cloudinary (Media), Razorpay (Payments) |
-
-## DevOps & CI/CD Workflow
-
-This project is built with a **fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline** using GitHub Actions, a cornerstone of modern DevOps practices.
-
-1.  **Trigger:** Any `git push` to the `main` branch automatically triggers the pipeline.
-2.  **Path Filtering:** The pipeline is intelligent; it only builds and deploys the service (frontend or backend) that had code changes, saving time and resources.
-3.  **Build:** A job runs on a fresh Ubuntu virtual machine, checks out the code, and builds a production-ready Docker image using multi-stage builds for minimal size and enhanced security.
-4.  **Push:** The newly built image is pushed and tagged on Docker Hub, creating a versioned, portable artifact of the application.
-5.  **Deploy:** The pipeline sends a webhook request to Render, which triggers an immediate, zero-downtime deployment by pulling the new image from Docker Hub and restarting the service.
-
-This end-to-end automation ensures rapid, reliable, and consistent deployments, allowing for a focus on feature development rather than manual release management.
-
----
-
-## Getting Started (Local Development)
-
-To run this project on your local machine, please follow these steps.
+## 1) Run locally (development)
 
 ### Prerequisites
+- Node.js 18+
+- MongoDB Atlas URI (or local MongoDB)
+- Cloudinary account
+- Razorpay keys
 
-- Node.js (v18 or later)
-- A Git client
+### Backend setup
 
-### Installation & Setup
+```bash
+cd backend
+npm install
+```
 
-1.  **Clone the repository:**
+Create `backend/.env`:
 
-    ```bash
-    git clone [https://github.com/krishna2005-kk/Project_sem7.git](https://github.com/krishna2005-kk/Project_sem7.git)
-    cd ApexQuest-Learning-Management-System
-    ```
+```env
+PORT=8000
+MONGODB_URL=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+FRONTEND_URL=http://localhost:5173
 
-2.  **Configure Environment Variables:**
-    Create two `.env` files based on the provided templates.
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
-    - Create a file at `./backend/.env` and fill in the values from `./backend/.env.example`.
-    - Create a file at the root `./.env` for frontend build arguments (see the root `.env.example` in the repo). For local development, `VITE_SERVER_URL` should be `http://localhost:8000`.
+EMAIL=your_email@example.com
+EMAIL_PASS=your_email_password_or_app_password
 
-3.  **Build and Run the Application with Docker Compose:**
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_SECRET=your_razorpay_secret
+```
 
-    ```bash
-    # This command will build the Docker images and start the containers in the background.
-    docker-compose up --build -d
-    ```
+Start backend:
 
-4.  **Access the Application:**
-    - Frontend is available at: `http://localhost:5173`
-    - Backend API is available at: `http://localhost:8000`
+```bash
+npm run dev
+```
+
+### Frontend setup
+
+```bash
+cd frontend
+npm install
+```
+
+Create `frontend/.env`:
+
+```env
+VITE_SERVER_URL=http://localhost:8000
+VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
+```
+
+Start frontend:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173`.
 
 ---
 
-## Future Improvements
+## 2) Deploy as a real-world app (recommended stack)
 
-- [ ] Implement a staging environment for pre-production testing.
-- [ ] Increase test coverage with E2E tests using Cypress.
-- [ ] Integrate a WebSocket layer for real-time notifications.
-- [ ] Explore deployment on Kubernetes (K8s) for advanced orchestration.
+### A. Deploy backend to Render
 
-=======
+1. Push repository to GitHub.
+2. In Render, create **Web Service** from this repo.
+3. Configure:
+   - **Root directory**: `backend`
+   - **Build command**: `npm install`
+   - **Start command**: `npm start`
+4. Add backend environment variables (same as `backend/.env`).
+5. Set `FRONTEND_URL` to your frontend production URL.
+   - If you have multiple frontends/domains, separate them with commas.
 
-# Project_sem7
+Example:
 
-ApexQuest-Learning-Management-System
+```env
+FRONTEND_URL=https://your-frontend.vercel.app,https://www.yourdomain.com
+```
 
-> > > > > > > 956ce02683bc590b7fd013f58ba9b79ff4edd7c0
+6. Deploy and copy the generated backend URL (example: `https://apexquest-api.onrender.com`).
+
+### B. Deploy frontend to Vercel
+
+1. In Vercel, import the same GitHub repo.
+2. Set **Root directory** to `frontend`.
+3. Build settings:
+   - Install: `npm install`
+   - Build: `npm run build`
+   - Output directory: `dist`
+4. Add environment variables:
+
+```env
+VITE_SERVER_URL=https://your-render-backend-url.onrender.com
+VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
+```
+
+5. Deploy.
+
+### C. Final production checklist
+
+- Update backend `FRONTEND_URL` with the final Vercel domain.
+- Verify CORS and cookies/sign-in flow in production.
+- Test payment flow with Razorpay test mode first.
+- Ensure MongoDB Atlas network access allows Render IPs (or allow from anywhere with strong credentials).
+- Use strong secrets and rotate them if leaked.
+
+---
+
+## 3) Common issues
+
+### CORS error
+- Ensure `FRONTEND_URL` exactly matches frontend origin (including `https://`).
+- For multiple origins, use comma-separated values.
+
+### 404/Network error from frontend
+- Check `VITE_SERVER_URL` points to live backend URL.
+- Confirm backend service is running and reachable.
+
+### Login/cookie problems
+- Ensure frontend and backend are both HTTPS in production.
+- Confirm API calls include credentials where needed.
+
+---
+
+## 4) Suggested next upgrades
+
+- Add CI/CD pipelines (GitHub Actions) for automatic deploy.
+- Add Dockerfiles + docker-compose for consistent environments.
+- Add health checks and error monitoring (Sentry/Logtail).
